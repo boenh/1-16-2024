@@ -14,10 +14,10 @@ public class runner{
   }
   
   public static void main(String Arg[]) {
-	  int[][] board = {{2, 0, 0, 2},
+	  int[][] board = {{2, 0, 16, 2},
 			  		  {0, 0, 0, 0},
 			  		  {0, 0, 0, 0},
-			  		  {0, 2, 2, 16}};
+			  		  {2, 2, 16, 16}};
 //	  boolean[] posMove = valid(board);
 //	  for (int i = 0; i < posMove.length; i ++) {
 //		  System.out.println(posMove[i]);
@@ -51,53 +51,62 @@ public class runner{
 							  b2[i][n]=b2[i][n+1];
 						  }
 	    				  b2[i][b[0].length-1] = 0;
-	    				  continue;
+	    				  
 	    			  }
 	    			  
-	    			  if (b2[i][j+1]==b2[i][j]) {
-	    				  b2[i][j] += b2[i][j+1];
-	    				  if (j != b[0].length-1) {
-	    					  for (int n = j+1; n < b[0].length-1; n ++) {
-	    						  b2[i][n]=b2[i][n+1];
-	    					  }
-	    					  b2[i][b[0].length-1]= 0; 
-	    				  }
-	    				  else{
-	    					  b2[i][j] = 0;
-	    				  }
-	    			  }
+	    			  
 	    			  
 	    		  }
     		  }
+    		  for (int j = 0; j <b[0].length-1; j ++) {
+    			  if (b2[i][j+1]==b2[i][j]) {
+    				  b2[i][j] += b2[i][j+1];
+    				  if (j != b[0].length-1) {
+    					  for (int n = j+1; n < b[0].length-1; n ++) {
+    						  b2[i][n]=b2[i][n+1];
+    					  }
+    					  b2[i][b[0].length-1]= 0; 
+    				  }
+    				  else{
+    					  b2[i][j] = 0;
+    				  }
+    			  }
+    		  }
+    		  
     	  }
       }
       if (move == 1) {
     	  for (int i = 0; i < b.length; i ++) {
     		  
-    		  for (int p = 0; p <1; p ++) {
+    		  for (int p = 0; p <3; p ++) {
 	    		  for (int j = b[0].length-1 ; j >1 ; j --) {
 	    			  if (b2[i][j]==0) {
 	    				  for (int n = j; n > 0; n --) {
 							  b2[i][n]=b2[i][n-1];
 						  }
 	    				  b2[i][0] = 0;
-	    				  continue;
 	    			  }
 	    			  
-	    			  if (b2[i][j-1]==b2[i][j]) {
-	    				  b2[i][j] *=2;
-	    				  if (j != 0) {
-	    					  for (int n = j-1; n >  0; n --) {
-	    						  b2[i][n]=b2[i][n-1];
-	    					  }
-	    					  b2[i][0]= 0; 
-	    				  }
-	    				  else{
-	    					  b2[i][j] = 0;
-	    				  }
-	    			  }
+	    			  
 	    			  
 	    		  }
+    		  }
+    		  
+    		  for (int j = b[0].length-1 ; j >1 ; j --) {
+
+    			  if (b2[i][j-1]==b2[i][j]) {
+    				  b2[i][j] *=2;
+    				  if (j != 0) {
+    					  for (int n = j-1; n >  0; n --) {
+    						  b2[i][n]=b2[i][n-1];
+    					  }
+    					  b2[i][0]= 0; 
+    				  }
+    				  else{
+    					  b2[i][j] = 0;
+    				  }
+    			  }
+    			  
     		  }
     	  }
       }
