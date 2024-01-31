@@ -100,6 +100,11 @@ public class runner{
       return maxMove;
   }
   
+  public static int evaluate(int[][] newB) {
+	  int score = 0;
+	  
+  }
+  
   public static void main(String Arg[]) {
 	  int[][] board = {{2, 0, 2, 8},
 			  		  {2, 0, 0, 0},
